@@ -79,11 +79,11 @@
     events - погодные явления.
   9. Обработка пропусков. Пропуски в столбцах с погодными условиями - temperature, visibility, wind speed, precip заполняем медианным значением температуры, влажности, скорости ветра и видимости в зависимости от даты начала поездки. Пропуски в столбце events заполняем строкой 'None' - символом отсутствия погодных явлений (снега/дождя/тумана). Пропуски в столбцах с информацией из OSRM API - total_distance, total_travel_time и number_of_steps заполните медианным значением по столбцам.
   10. Убираем очевидные выбросы в целевой переменной - длительности поездки, значения trip_duration, которые меньше total_travel_time(либо реальные выбросы, либо с нарушением ПДД). 
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_0.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_0.png)
   Также по методу z-отклонений удаляем выбросы в признаках: trip_duration, total_travel_time, avg_speed. В результате ослось записей: 1395120.
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_01.png)
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_02.png)
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_03.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_01.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_02.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_03.png)
   
 
 
@@ -92,33 +92,33 @@
   1. логарифмируем признак длительности поездки trip_duration и при анализе будем рассматривать логарифм в качестве целевого признака.
   Также логарифмируем признак total_travel_time - наименьшее время поездки.
   2. строим гистограмму и коробчатую диаграмму длительности поездок в логарифмическом масштабе (trip_duration_log). Сравниваем распределение по визуализации и с помощью теста Д’Агостино на нормальность.
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_1.png)
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_2.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_1.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_2.png)
   3. визуализации распределения длительности поездки в логарифмическом масштабе (trip_duration_log) в зависимости от таксопарка (vendor_id).
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_3.png)
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_4.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_3.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_4.png)
   4. визуализации распределения длительности поездки в логарифмическом масштабе (trip_duration_log) в зависимости от признака отправки сообщения поставщику (store_and_fwd_flag).
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_5.png)
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_6.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_5.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_6.png)
   5. визуализации:
      -распределение количества поездок в зависимости от часа дня;
      -зависимость медианной длительности поездки от часа дня.
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_7.png)
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_8.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_7.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_8.png)
 
   6. визуализации:
      -распределение количества поездок в зависимости от дня недели;
      -зависимость медианной длительности поездки от дня недели.
-     ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_9.png)
-     ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_10.png)
+     ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_9.png)
+     ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_10.png)
 
   7. тепловая карта сводной таблицы, по строкам которой отложены часы (pickup_hour), по столбцам - дни недели (pickup_day_of_week), а в ячейках - медианная длительность поездки (trip_duration).
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_11.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_11.png)
   8. две диаграммы рассеяния (scatter-диаграммы):
      -первая должна иллюстрировать географическое расположение точек начала поездок (pickup_longitude, pickup_latitude)
      -вторая должна географическое расположение точек завершения поездок (dropoff_longitude, dropoff_latitude).
-     ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_12.png)
-     ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_13.png)
+     ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_12.png)
+     ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_13.png)
 
   
 - Отбор и преобразование признаков
@@ -134,7 +134,7 @@
   1. строим модель линейной регрессии на обучающей выборке (целевая переменная используется в логарифмическом масштабе). Все параметры по умолчанию. В качестве метрики используется RMSLE. Получаем метрики на тренировочной - 0.34 и валидационной выборке равной 0.34.
   2. строим модель дерева решений (DecisionTreeRegressor) на обучающей выборке (целевую переменную используйте в логарифмическом масштабе). Все параметры по умолчанию. Для полученной модели рассчитываем метрику RMSLE для валидационной выборки и получаем 0.41. 
   3. перебераем все возможные варианты глубины дерева решений в диапазоне от 7 до 20. Находим оптимальное значение максимальной глубины дерева равной 12 и получаем метрики на тренировочной и валидационной выборках: 0.33 и 0.34 соответственно.
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_14.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_14.png)
 
 - Решение задачи регрессии: ансамблевые методы и построение прогноза
   1. строим модель случайного леса на обучающей выборке (целевую переменную используйте в логарифмическом масштабе). В качестве гиперпараметров используем следующие:
@@ -154,7 +154,7 @@
     Получаем метрику RMSLE на тренировочной и валидационной выборках: 0.21 и 0.28
 
   6. по наилучшему моделю, модель градиентного бустинга над деревьями решений, строим столбчатую диаграмму коэффициентов значимости каждого из факторов. Наилучшие топ-3 факторы: total_distance, total_travel_time и dropoff_latitude.
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_15.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_15.png)
   7. получаем более понятное представление об ошибке прогноза длительности поездки с помощью медианной абсолютной ошибки (MeAE - в sklearn функция median_absolute_error) предсказания длительности поездки такси на тренировочной и валидационной выборке. Получаем значение в минутах: 1.35 и 1.79.
   8. используем модель экстремального градиентного бустинга (XGBoost) из библиотеки xgboost. Гиперпараметры модели:
       'min_child_weight': 20, 'eta': 0.1, 'colsample_bytree': 0.9,
@@ -163,7 +163,7 @@
       'alpha' : 0.1, 'lambda' : 10
   Получаем метрику RMSLE на тренировочной и валидационной выборках: 0.21	и 0.26.
   9. строим столбчатую диаграмму коэффициентов значимости каждого из факторов. Наилучшие топ-10 факторов: pickup_latitude, dropoff_latitude, dropoff_longitude, pickup_longitude, direction, haversine_distance, total_travel_time, total_distance, temperature,  wind speed.
-  ![](https://github.com/murattumov/project6/blob/master/plotly/pr5_16.png)
+  ![](https://github.com/murattumov/project5/blob/master/plotly/pr5_16.png)
 
 
 ### **Результат**
